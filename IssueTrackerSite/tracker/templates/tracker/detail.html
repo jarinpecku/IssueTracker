@@ -1,0 +1,17 @@
+{% extends "tracker/base.html" %}
+{% block content %}
+<h2>Issue {{ issue.id }}: {{ issue.title }}</h2>
+Author: {{ issue.author }}<br/>
+Assigned to: {{ issue.assigned_to }}<br/>
+Status: {{ issue.status }}<br/>
+Category: {{ issue.category }}<br/>
+Created: {{ issue.created }}<br/>
+{% if issue.status.id == 2 %}
+Closed: {{ issue.closed }}<br/>
+{% endif %}
+<p><i>{{ issue.description }}</i></p>
+{% if perms.tracker.is_superuser %}
+<p><a href="{% url 'tracker:edit' issue.id %}">Edit</a> / <a href="{% url 'tracker:delete' issue.id %}">Delete</a></p>
+{% endif %}
+{% endblock %}
+

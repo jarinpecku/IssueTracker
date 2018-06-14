@@ -1,0 +1,12 @@
+{% extends "tracker/base.html" %}
+{% block content %}
+  {% if user.is_authenticated and not perms.tracker.is_superuser %}
+    <b>You don't have a permission to add, edit or remove issues.</b>
+  {% endif %}
+  <h2>Login</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Login</button>
+  </form>
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends "tracker/base.html" %}
+{% block content %}
+<h2>Edid issue {{ issue.id }}: {{ issue.title }}</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Update" />
+</form>
+{% endblock %}

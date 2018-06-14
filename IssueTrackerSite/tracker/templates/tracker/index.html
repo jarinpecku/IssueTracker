@@ -1,0 +1,13 @@
+{% extends "tracker/base.html" %}
+{% block content %}
+<h2>List of issues</h2>
+{% if issues_list %}
+    <ul>
+    {% for issue in issues_list %}
+        <li><a href="/tracker/{{ issue.id }}/">{{ issue.title }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No issues are available.</p>
+{% endif %}
+{% endblock %}

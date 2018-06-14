@@ -25,6 +25,9 @@ SECRET_KEY = 'w*3u(*97c@%)t%zqop*gmx964o_g6*!0ag10=v#ec%eh*eh&75'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+#LOGIN_URL = 'login/'
+LOGIN_REDIRECT_URL = '..'
+
 ALLOWED_HOSTS = []
 
 
@@ -48,6 +51,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'tracker.middleware.current_user.CurrentUserMiddleware',
 ]
 
 ROOT_URLCONF = 'IssueTrackerSite.urls'
@@ -106,7 +110,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Prague'
 
 USE_I18N = True
 
