@@ -14,6 +14,10 @@ class Status(models.Model):
     class Meta:
         verbose_name_plural = "statuses"
 
+    @classmethod
+    def get_closed_id(cls):
+        return cls.objects.filter(name='closed')[0].id
+
 
 class Category(models.Model):
     name = models.CharField(max_length=50)
@@ -45,4 +49,3 @@ class Issue(models.Model):
 
     def get_absolute_url(self):
         return '%d' % self.id
-

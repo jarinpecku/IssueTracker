@@ -1,10 +1,18 @@
 {% extends "tracker/base.html" %}
 {% block content %}
-<h2>List of issues</h2>
+<h3>Issue statistics</h3>
+<ul style="list-style-type:none">
+    <li>Min time: {{ min }}</li>
+    <li>Average time:{{ avg }}</li>
+    <li>Max time: {{ max }}</li>
+</ul>
+
+<h2>{{ view.title }}</h2>
+
 {% if issues_list %}
-    <ul>
+    <ul style="list-style-type:none">
     {% for issue in issues_list %}
-        <li><a href="/tracker/{{ issue.id }}/">{{ issue.title }}</a></li>
+        <li><a href="/tracker/{{ issue.id }}/">#{{ issue.id }}: {{ issue.title }}</a></li>
     {% endfor %}
     </ul>
 {% else %}

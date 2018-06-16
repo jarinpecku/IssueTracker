@@ -6,6 +6,8 @@ from . import views
 app_name = 'tracker'
 urlpatterns = [
     path('', views.IndexView.as_view(), name='index'),
+    path('myissues/', views.MyIssuesView.as_view(), name='myissues'),
+    path('newissues/', views.NewIssuesView.as_view(), name='newissues'),
     path('create/', views.CreateView.as_view(), name='create'),
     path('<int:pk>/', views.DetailView.as_view(), name='detail'),
     path('<int:pk>/edit/', views.UpdateView.as_view(), name='edit'),

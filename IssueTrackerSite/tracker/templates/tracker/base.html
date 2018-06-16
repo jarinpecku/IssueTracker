@@ -22,17 +22,19 @@
       <div class="col-sm-2">
         {% block sidebar %}
           <ul class="sidebar-nav">
-          <p><a href="{% url 'tracker:index' %}">Issues</a></p>
           {% if user.is_authenticated %}
             <p>User: {{ user.get_username }}</p>
             {% if perms.tracker.is_superuser %}
               <p>You are superuser:<br>
               Add, Edit or Remove Issues</p>
-              <p><a href="{% url 'tracker:create' %}">New issue</a></p>
+              <p><a href="{% url 'tracker:create' %}">Add a new issue</a></p>
             {% else %}
               <p>You are staff:<br>
               Browse & Read Issues</p>
             {% endif %}
+            <p><a href="{% url 'tracker:index' %}">All issues</a></p>
+            <p><a href="{% url 'tracker:myissues' %}">My issues</a></p>
+            <p><a href="{% url 'tracker:newissues' %}">New issues</a></p>
             <p><a href="{% url 'tracker:logout' %}">Log out</a></p>
           {% else %}
             <p><a href="{% url 'tracker:login' %}">Log in</a></p>
